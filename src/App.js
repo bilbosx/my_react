@@ -39,6 +39,7 @@ const App = () => {
           placeholder="Search for movies"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyPress={e => e.key === 'Enter' && searchMovies(searchTerm)}
         />
         <img
           src={SearchIcon}
@@ -47,7 +48,7 @@ const App = () => {
         />
       </div>
 
-      {movies?.length > 0
+      {movies?.length
         ? (
           <div className="container">
             {movies.map((movie) => (
